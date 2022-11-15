@@ -1,0 +1,41 @@
+<div class="container">
+  <form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1>Formulario de Registro</h1>
+    <div class="input">
+      <label for="name">Nombre</label>
+      <input type="text" name="name" id="name" formControlName="name">
+    </div>
+    <div class="input">
+      <label for="password">Contraseña</label>
+      <input type="password" name="password" id="password" formControlName="password">
+    </div>
+    <div class="input">
+      <label for="confirmPassword">Confirmar Contraseña</label>
+      <input type="password" name="confirnPassword" id="confirmPassword" formControlName="confirmPassword">
+    </div>
+    <div class="input">
+      <label for="mail">Correo electrónico</label>
+      <input type="text" name="mail" id="mail" formControlName="mail">
+    </div>
+    <div>
+      <input type="checkbox" name="offer" id="offer" title="offer" formControlName="offer">
+      <label for="offer">Envíame ofertas promocionales</label>
+    </div>
+    <div class="input">
+      <label for="country">Pais</label>
+      <select name="country" id="country" formControlName="country">
+        <option value="">Seleccione un país</option>
+        <option *ngFor="let country of countries" value="{{ country?.name.common }}">{{country?.name.common}}</option>
+      </select>
+    </div>
+    <div class="input">
+      <label for="city">Ciudad</label>
+      <input type="text" name="city" id="city" formControlName="city">
+    </div>
+    <input *ngIf="!isEdit" class="button" type="submit" value="Añadir" [disabled]="!form.valid">
+    <input *ngIf="isEdit" class="button" type="submit" value="Actualizar" [disabled]="!form.valid">
+  </form>
+  <div class="list">
+    <app-list [users]="users" (userEmit)="onUserEmit($event)" (idEmit)="onIdEmit($event)"></app-list>
+  </div>
+</div>

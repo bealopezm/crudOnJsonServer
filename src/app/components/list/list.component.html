@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Correo</th>
+      <th>Suscrito</th>
+      <th>País</th>
+      <th>Ciudad</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <th>{{user?.name}}</th>
+      <td>{{user?.mail}}</td>
+      <td><i class="fa-solid" [ngClass]="{'fa-xmark': !user?.offer, 'fa-check': user?.offer}"></i>
+      </td>
+      <td>{{user?.country}}</td>
+      <td>{{user?.city}}</td>
+      <td><i class="fa-solid fa-pencil icon" (click)="update(user.id)"></i><i class="fa-solid fa-trash icon"
+          (click)="delete(user.id)"></i></td>
+    </tr>
+  </tbody>
+</table>

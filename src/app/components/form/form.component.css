@@ -1,0 +1,44 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.list {
+  grid-column-start: 2;
+  grid-column-end: 6;
+}
+
+form {
+  width: 100%;
+
+}
+
+h1 {
+  font-size: 1.20rem;
+}
+
+div {
+  margin: 0.5rem 1rem;
+}
+
+.input label {
+  display: block;
+  text-align: start;
+}
+
+input {
+  padding: 3px 5px;
+}
+
+.button {
+  margin: 0.5rem 4rem;
+  background-color: darkgreen;
+  color: antiquewhite;
+  padding: 0.25rem 0.5rem;
+  border-color: darkgreen;
+
+}
+
+select {
+  padding: 3px 5px;
+}
